@@ -540,47 +540,20 @@ Inter-page data passing uses `st.session_state` — `Treatment.py` stores `selec
 
 ---
 
-## 13. Known Limitations & Roadmap
-
-### Current Limitations
-
-| Limitation | Impact |
-|---|---|
-| No query capability | Cannot search patients by name or filter diagnostics by date range — enumeration only |
-| Machine-local session | `.active_doctor` is not shared across networked machines — single-machine deployment only |
-| No concurrent write protection | Race conditions theoretically possible if two Streamlit instances write simultaneously (practically unlikely in single-user deployment) |
-| Doctor name change orphans data | Changing first/last name in the profile creates a new folder path, leaving existing patient data under the old path |
-| No soft delete | Patient records are permanent — no mechanism to mark a patient as inactive |
-| Uploaded PDF filename collisions | PDFs in `*_pdf/` subfolders are stored with their original filename; a second upload with the same name silently overwrites the first |
-| No hospitalisation history | `hospitalizedtreatment.csv` is overwritten on each save — no versioned history of how admission data evolved |
-
-### Recommended Future Improvements
-
-- **SQLite integration** — replace CSV files with a single `SQLite` database for full SQL query capability, JOIN operations, and transaction semantics — while remaining serverless and file-based
-- **Folder-path migration on profile update** — implement a rename/copy operation when doctor name changes to preserve all patient data
-- **Uploaded PDF timestamp prefix** — apply the same microsecond-timestamp strategy used for X-ray images to uploaded medical PDFs
-- **Hospitalisation versioning** — switch `hospitalizedtreatment.csv` to append mode (one row per save) to track episodic evolution
-- **Cross-device session** — replace `.active_doctor` with a network-accessible token (JWT or cookie) for multi-machine deployment
-- **Data export API** — doctor-level ZIP archive of all patient records in standardised format
-- **Full-text search index** — lightweight JSON inverted index of patient names and IDs for O(1) lookup instead of O(N) directory scan
-- **HL7 FHIR integration** — interoperability with hospital information systems
-
----
-
-## 14. Team
+## 13. Team
 
 | Name | Role | Institution |
 |---|---|---|
 | **Dr. Abderrahmane Khiat** | Project Supervisor | University of Saida, Algeria |
-| **Kassouar Fatima** | Project Manager & ML Engineer | University of Saida, Algeria |
 | **Miloudi Maroua Amira** | Fullstack Developer & Business Model | University of Saida, Algeria |
 | **Bouhmidi Amina Maroua** | Data Engineer | University of Saida, Algeria |
 | **Labani Nabila Nour El Houda** | Deep Learning Engineer | University of Saida, Algeria |
+| **Kassouar Fatima** | ML Engineer | University of Saida, Algeria |
 | **Dr. Aimer Mohammed Djamel Eddine** | Medical Advisor | CHU Saida, Algeria |
 
 ---
 
-## 15. Acknowledgements
+## 14. Acknowledgements
 
 - **Labani Nabila Nour El Houda** — DenseNet121 fine-tuning, GradCAM implementation, and model training pipeline  
   GitHub: [@labaninabila193-code](https://github.com/labaninabila193-code)
@@ -601,7 +574,7 @@ Medical references embedded in the explanation engines:
 
 ---
 
-## 16. Technical Notes
+## 15. Technical Notes
 
 - The `whyvitals.py` risk score (0–100) is an **internal interpretability metric** computed from `SCORE_WEIGHTS` and is not directly equivalent to the Gradient Boosting model's probability output. They are complementary — the score contextualises the prediction for the clinician.
 - The `"uncertain"` outcome in `whyxray.py` is not returned by the DenseNet121 model directly. It is triggered in `xraydiagnostique.py` when `abs(pred_score - 0.260) < threshold_margin`. Tuning this margin is a deployment-time decision.
@@ -613,7 +586,7 @@ Medical references embedded in the explanation engines:
 
 ---
 
-## 17. License
+## 16. License
 
 This project was developed as an academic capstone at the **University of Saida, Algeria, Academic Year 2025–2026**. All rights reserved by the project team. Contact the supervisor for usage permissions.
 
