@@ -19,7 +19,8 @@
 ---
 
 ## Table of Contents
-
+🚨 Problem Statement
+💡 Proposed Solution
 1. [Project Overview](#1-project-overview)
 2. [Clinical Motivation](#2-clinical-motivation)
 3. [Diagnostic Capabilities](#3-diagnostic-capabilities)
@@ -46,6 +47,45 @@
 17. [License](#17-license)
 
 ---
+
+🚨 Problem Statement
+The Global Crisis
+Pneumonia remains a leading cause of mortality in children under five, claiming 740,000+ lives annually worldwide and accounting for 15% of all child deaths. This preventable infectious disease disproportionately affects low- and middle-income countries where diagnostic infrastructure is severely limited.
+Algeria-Specific Challenges
+In Algeria, pediatric pneumonia diagnosis faces critical systemic barriers:
+
+Overwhelming Patient Volume: Emergency departments handle 200–300 pediatric pneumonia cases daily, resulting in 6–24 hour diagnostic delays
+Radiologist Shortage: Approximately 1 pediatric radiologist per 500,000 children — a ratio representing a 500-fold deficiency compared to developed nations
+Diagnostic Variability: Radiologist agreement on pneumonia diagnosis ranges only 70–85%, introducing significant inter-observer error
+Geographic Barriers: 40% of pediatric patients require 50–100 km travel to access chest X-ray imaging facilities, with many rural children never receiving diagnostic imaging
+
+Why Delayed Diagnosis is Dangerous
+The consequences of diagnostic delay are severe and well-documented:
+
+Progressive Hypoxemia: Untreated pneumonia leads to deteriorating oxygen saturation, increasing risk of acute respiratory distress syndrome (ARDS)
+Bacterial Superinfection: Delayed antibiotics enable progression from community-acquired pneumonia to secondary bacterial infection and sepsis
+False Negatives as Critical Risk: A missed pneumonia diagnosis is far more clinically dangerous than a false positive alert — the latter causes unnecessary antibiotic exposure (a manageable risk), while the former permits disease progression to life-threatening complications
+
+Clinical Justification for AI
+This system addresses these gaps through:
+
+Availability: AI operates 24/7 without radiologist availability constraints
+Consistency: Deep learning models eliminate inter-observer diagnostic variability
+Speed: Automated analysis provides results in seconds, reducing diagnosis-to-treatment time
+Explainability: Grad-CAM visualizations enable clinical verification, building radiologist confidence rather than replacing expertise
+Scalability: One trained model can be deployed across unlimited clinical sites
+
+
+💡 Proposed Solution
+The AI Pediatric Pneumonia Detector integrates two complementary diagnostic pathways:
+Diagnostic Pathway 1: Vital Signs Analysis
+Input: 12 clinical parameters (temperature, SpO2, cough type, fever severity, confusion status, etc.)
+Model: Gradient Boosting Classifier (scikit-learn)
+Output: Binary classification (Sick/Not Sick) + risk score + medical explanation
+Diagnostic Pathway 2: Chest X-Ray Analysis
+Input: Pediatric chest radiograph (PNG/JPG)
+Model: DenseNet121 CNN (fine-tuned on pneumonia dataset)
+Output: Classification (PNEUMONIA/NORMAL) + confidence score + Grad-CAM heatmap + radiological explanation
 
 ## 1. Project Overview
 
