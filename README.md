@@ -591,6 +591,8 @@ Medical references embedded in the explanation engines:
 This project was developed as an academic capstone at the **University of Saida, Algeria, Academic Year 2025–2026**. All rights reserved by the project team. Contact the supervisor for usage permissions.
 
 ---
+[![Watch Demo](https://via.placeholder.com/800x450.png?text=Watch+App+Demo)]
+(https://drive.google.com/file/d/1MIjz1kT8xTPUfc2iNRzVsb253N4PSRca/view?usp=sharing)
 
 <div align="center">
 
