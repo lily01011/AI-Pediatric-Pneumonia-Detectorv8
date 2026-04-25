@@ -112,14 +112,6 @@ team = [
         "photo":   None,
     },
     {
-        "name":    "Kassouar Fatima",
-        "email":   "null",
-        "role":    "Project Manager, ml Engineer",
-        "degree":  "State Engineer in Computer Science",
-        "uni":     "University of Saida, Algeria",
-        "photo":   None,
-    },
-       {
         "name":    "Miloudi Maroua Amira",
         "email":   "merouaamriamiloudi@univ-saida.dz",
         "role":    "Business Model,fullstack developer",
@@ -129,7 +121,7 @@ team = [
     },
     {
         "name":    "Bouhmidi Amina Maroua",
-        "email":   "non",
+        "email":   "bouhmidiamina2024@gmail.com",
         "role":    "Data Engineer",
         "degree":  "State Engineer in Computer Science",
         "uni":     "University of Saida, Algeria",
@@ -137,8 +129,16 @@ team = [
     },
     {
         "name":    "Labani Nabila Nour El Houda",
-        "email":   "null",
+        "email":   "labaninabila193@gmail.com",
         "role":    "DL Engineer",
+        "degree":  "State Engineer in Computer Science",
+        "uni":     "University of Saida, Algeria",
+        "photo":   None,
+    },
+      {
+        "name":    "Kassouar Fatima",
+        "email":   "kassoarfatima48@gmail.com",
+        "role":    "Project Manager, ml Engineer",
         "degree":  "State Engineer in Computer Science",
         "uni":     "University of Saida, Algeria",
         "photo":   None,
